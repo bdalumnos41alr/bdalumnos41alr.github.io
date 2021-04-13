@@ -50,9 +50,13 @@ async function busca() {
           import("./tipos.js").
                   Alumno} */
       const data = doc.data();
+      
       forma.matricula.value = data.matricula;
-      forma.nombre.value =
-        data.nombre || "";
+      forma.nombre.value = data.nombre || "";
+      forma.grupo.value = data.grupo;
+      forma.tel.value = data.tel;
+      forma.fecha.value = data.fecha;
+      
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
@@ -74,10 +78,18 @@ async function guarda(evt) {
     evt.preventDefault();
     const formData =
       new FormData(forma);
+    
     const matricula = getString(
         formData, "matricula").trim();  
     const nombre = getString(
       formData, "nombre").trim();
+    
+    const grupo = getString(
+      formData, "grupo").trim();
+    const tel = getString(
+      formData, "tel").trim();
+    const fecha = getString(
+      formData, "fecha").trim();
     /**
      * @type {
         import("./tipos.js").

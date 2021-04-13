@@ -96,7 +96,10 @@ async function guarda(evt) {
                 Alumno} */
     const modelo = {
       matricula, 
-      nombre
+      nombre,
+      grupo,
+      tel,
+      fecha
     };
     await daoAlumno.
       doc(id).
